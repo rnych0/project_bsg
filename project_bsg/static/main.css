@@ -1,0 +1,97 @@
+body {
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg");
+  background-size: cover; /*더 넓은 사이즈에 맞게 */
+  background-repeat: no-repeat; /*배경 이미지 반복을 사용하지 않겠다*/
+  background-attachment: fixed; /*스크롤했을때 배경 이미지가 올라가지 않도록 고정*/
+}
+
+.container { 
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+}
+
+h1 {
+  font-size: 30px; /* 글자 크기를 20px로 지정 (원하시는 크기에 맞게 조절 가능) */
+  text-align: center; /* 가운데 정렬 */
+  background: linear-gradient(to right, violet, indigo, rgb(85, 0, 255), rgb(218, 41, 165), rgb(24, 100, 199), orange, red); /* 무지개 색상으로 그라데이션 적용 */
+  -webkit-background-clip: text; /* 텍스트만 색상을 적용하기 위한 웹킷 프리픽스 */
+  background-clip: text; /* 텍스트만 색상을 적용 */
+  color: transparent; /* 텍스트를 투명하게 만들어 배경의 그라데이션 색상이 나타나도록 함 */
+}
+
+.container .keyword-container {  /* container .heroes .hero 의 부모 */
+  display: flex;  /*요소들이 모두 수평으로 여백 없이 정렬*/
+  flex-wrap: wrap; /* 위 요소들 자리 부족하면 가로 줄 바꿈 출력 */
+  justify-content: center; /*요소들 가운데 정렬 */
+  max-width: 800px; /* 요소들 들어있는 최대 가로 넓이지정, 수평 한줄로 되는거 막기위해 가로 사이즈 지정함 800이하는 요소들이 자동으로 줄어들어 줄바꿈함 */
+  margin: 0 auto; /*<중요> 전체 내용을 가운데 정렬할때사용//margin:0 auto는 블록요소 이고, max-width: 600px; 명시되어있어야 사용가능*/
+  padding: 40px 20px;  /* 주황색 전체에 대한 내부 여백 줌 */
+
+} 
+.container .keyword-container .keyword-botton
+{ /*container .heroes 자식 */
+  width: 80px; /*요소 하나 가로 사이즈 */
+  height:40px;  /*요소 하나 세로 사이즈 */
+  margin:20px;  /*요소와 요소사이 여백 */
+  border: 3px solid #fff; /*각 요소 테두리 두께와 흰색선 사용 */
+  border-radius: 10px; /*요소box 모서리 둥글게 깍아줌 */
+  box-sizing: border-box; /*border나 패딩이 들어 갔을때 요소box가 커지는데 이기능을 사용하면 위칸에 width: 80px, height:40px 범위 보다 크지않게 해줌*/
+  background-color: #8d8a8a;
+  overflow: hidden;
+  transform: skewX(-14deg); /*변환효과: 각요소box를 14도 만큼 기울어지게*/
+  transition: /* 요소에 마우스를 올렸을때 서서히 화면이 바뀌게됨(즉 애니매이션 효과)*/
+    transform 0.1s, /*transform scale이(1.3)일때만 전환효과 일어나게*/
+    background-color 0.6s; /*배경 색상은 0.6초 전환효과*/
+  text-align: center;
+  line-height:40px;
+  color:#2a07aa;
+  cursor: pointer; /* 마우스가 키워드 선택할때 화살표-> 손가락모양으로 바뀜 */
+   }
+
+.container .keyword-container .keyword-botton:active{ /* 요소에 마우스를 올리면 어떻게 할건지를 */ 
+  background-color:#ff9c00;  /* 요소에 마우스를 올리면 회색에서 오렌지 색으로 바뀜 */ 
+  transform : skewX(-14deg) scale(1.3); /* 요소에 마우슬 올리면 요소box가 1.3배 커짐, skewX(-14deg) 요소box 14도 기울어지게 */
+  z-index: 1; /* 요소에 마우스를 올리면 해당 요소box 위로 올라와서 첫번째가 되서 회색 요소들 보다 위로 보여짐 */
+  text-align: center;
+  line-height:40px;
+  color:#4d479f;
+  font-weight : bold;
+  
+}
+
+.selected-keywords {
+  /* margin: 10px auto; */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #310cb8; /* 글자 색상 */
+  border: 3px solid #fff;
+  max-width: 600px;
+  height: 80px;
+  line-height: 30px; /* 줄 간격 조절 */
+  font-size: 20px;
+  background-image: linear-gradient(to right, violet, rgb(208, 216, 102), rgb(91, 91, 199), rgb(125, 189, 125), yellow, orange, violet); /* 무지개 색상으로 변경 */
+}
+
+.reset-button,
+.submit-button {
+  display: inline; /* 인라인 블록 요소로 설정하여 같은 줄에 표시 */
+  margin: 10px; /* 간격 조절 */
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4d479f;
+  color: #ff9c00;
+  border: 3px solid #fff;
+}
+
+
+
+
+
